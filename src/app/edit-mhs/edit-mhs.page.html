@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Mahasiswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="formMahasiswa" (ngSubmit)="simpanPerubahan()">
+
+    <ion-item>
+      <ion-input label="Nama" labelPlacement="floating" formControlName="nama"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="NIM" labelPlacement="floating" formControlName="nim"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Jurusan" labelPlacement="floating" formControlName="jurusan">
+        <ion-select-option value="TI">Teknik Informatika</ion-select-option>
+        <ion-select-option value="SI">Sistem Informasi</ion-select-option>
+        <ion-select-option value="DKV">DKV</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      type="submit"
+      color="warning"
+      [disabled]="!formMahasiswa.valid"
+      class="ion-margin-top"
+    >
+      Simpan Perubahan
+    </ion-button>
+
+  </form>
+</ion-content>
